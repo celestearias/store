@@ -27,7 +27,7 @@
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="cargaradmin()">
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
@@ -45,14 +45,19 @@
             <a class="nav-link js-scroll-trigger" href="#portfolio">Departamentos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="inventario.html">Agregar inventario</a>
+            <a class="nav-link js-scroll-trigger" href="#">Departamentos</a>
+            <ul class="nav-item">
+              <li><a href="underwear.html">Underwear</a></li>
+              <li><a href="accessories.html">Accesories</a></li>
+              <li><a href="formal.html">Formal</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#registrar">Registrar administrador</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="indexsinloguear.html">Logout</a>
-          </li>
+          </li>   
         </ul>
       </div>
     </div>
@@ -134,49 +139,55 @@
             </div>
           </a>
         </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/4.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Underwear
-              </div>
-              <div class="project-name">
-                Femenine
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/5.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Accessories
-              </div>
-              <div class="project-name">
-                For any occasion
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/6.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
-            <div class="portfolio-box-caption p-3">
-              <div class="project-category text-white-50">
-                Clothes
-              </div>
-              <div class="project-name">
-                Formal
-              </div>
-            </div>
-          </a>
-        </div>
       </div>
     </div>
   </section>
 
+  <!-- Login Section -->
+  <section class="page-section bg-primary" id="registrar">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class='wrap'>
+                Información usuario
+            <div action="/" method="post">
+                <div class="field-wrap">
+            <input type="text"  placeholder="Nombre" id="nombre" class="inp"/>
+          </div>
+
+           <div class="field-wrap">
+            <input type="email"  placeholder="Email" id="email" class="inp"/>
+          </div>
+
+         <div class="field-wrap">
+            <input type="password"  placeholder="Password" id="clave" class="inp"/>
+          </div>
+
+          <div class="field-wrap">
+            <input type="file" name="file" id="imagenenbase64">
+          </div>
+
+          <div class="field-wrap">
+            <select id="estado">
+              <option value="1">Activo</option>
+              <option value="0">Inactivo</option>
+            </select>
+          </div>
+          <button type="button" class="button button-block" onclick="botonguardarclick()" />Guardar</button>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+      
+      
+ 
+          
+          
+
+        
   <!-- Footer -->
   <footer class="bg-light py-5">
     <div class="container">
@@ -194,6 +205,10 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/creative.min.js"></script>
+
+    <!--Funciones para mostrar prendas agregadas-->
+  <script src="underwear.js"></script>
+
 
 </body>
 

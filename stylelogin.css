@@ -76,3 +76,14 @@ border-width: 5px;
   font-family:"Merriweather";
   font-size: 15px; 
 }
+
+header nav ul li{
+  display:inline-block;
+  position:relative;
+}
+header nav ul li a{
+  color:black;
+  padding:15px;
+  display:block;
+  text-decoration:none;
+}
