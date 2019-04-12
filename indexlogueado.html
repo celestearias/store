@@ -22,15 +22,17 @@
 
   <!-- Theme CSS - Includes Bootstrap -->
   <link href="css/creative.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/select.css">
 
-  <link rel="stylesheet" href="css/stylelogin.css">
+  <!--<link rel="stylesheet" href="css/stylelogin.css">-->
 
 </head>
 
-<body id="page-top" onload="cargaradmin()">
+<body id="page-top" onload="botonguardarclick()">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Inicio</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,24 +41,19 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About us</a>
+            <a class="nav-link js-scroll-trigger" href="#portfolio">Imágenes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Departamentos</a>
+            <a class="nav-link js-scroll-trigger" href="prendas.html">Agregar prendas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Departamentos</a>
-            <ul class="nav-item">
-              <li><a href="underwear.html">Underwear</a></li>
-              <li><a href="accessories.html">Accesories</a></li>
-              <li><a href="formal.html">Formal</a></li>
-            </ul>
+            <a class="nav-link js-scroll-trigger" href="#agregar">Agregar administradores</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#registrar">Registrar administrador</a>
+            <a class="nav-link js-scroll-trigger" href="catalogo.html">Ver catalogo</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="indexsinloguear.html">Logout</a>
+            <a class="nav-link js-scroll-trigger" onclick="logout()">Logout</a>
           </li>   
         </ul>
       </div>
@@ -73,25 +70,52 @@
         </div>
         <div class="col-lg-8 align-self-baseline">
           <p class="text-white-75 font-weight-light mb-5"></p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Agregar al inventario</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- About Section -->
-  <section class="page-section bg-primary" id="about">
+   <!-- Login Section -->
+    <section class="page-section bg-primary" id="agregar">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="text-white mt-0">Tenemos gran variedad de prendas</h2>
+          <h2 class="text-white mt-0">Agregar admin</h2>
           <hr class="divider light my-4">
-          <p class="text-white-50 mb-4">Sé parte de esta tendencia formada en 2019</p>
-          <a class="btn btn-light btn-xl js-scroll-trigger" href="#portfolio">Ver prendas!</a>
+          <form class="cf">
+            <div class="half left cf">
+             <input type="text"  placeholder="Nombre" id="nombre"/>
+              <input type="email"  placeholder="Email" id="email"/>
+              <input type="password"  placeholder="Password" id="clave"/>
+            </div>
+            <div class="half right cf">
+              <input type="file" id="imgadmin">
+              <hr>
+              <div class="field-wrap">
+                <div class="select_mate" data-mate-select="active" >
+
+              <select name="" onchange="" onclick="return false;" id="estado">
+                <option value="1">Activo</option>
+                <option value="2" >Inactivo</option>
+              </select>
+            <p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+                <path d="M0-.75h24v24H0z" fill="none"/>
+            </svg></span>
+            <div class="cont_list_select_mate">
+              <ul class="cont_select_int">  </ul> 
+            </div>
+              </div>
+              </div>
+              <hr>
+            </div>  
+            <input type="submit" value="Guardar" id="input-submit" onclick="agregaadm()">
+          </form>
         </div>
       </div>
     </div>
   </section>
+
 
   <!-- Portfolio Section -->
   <section id="portfolio">
@@ -142,51 +166,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Login Section -->
-  <section class="page-section bg-primary" id="registrar">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
-          <div class='wrap'>
-                Información usuario
-            <div action="/" method="post">
-                <div class="field-wrap">
-            <input type="text"  placeholder="Nombre" id="nombre" class="inp"/>
-          </div>
-
-           <div class="field-wrap">
-            <input type="email"  placeholder="Email" id="email" class="inp"/>
-          </div>
-
-         <div class="field-wrap">
-            <input type="password"  placeholder="Password" id="clave" class="inp"/>
-          </div>
-
-          <div class="field-wrap">
-            <input type="file" name="file" id="imagenenbase64">
-          </div>
-
-          <div class="field-wrap">
-            <select id="estado">
-              <option value="1">Activo</option>
-              <option value="0">Inactivo</option>
-            </select>
-          </div>
-          <button type="button" class="button button-block" onclick="botonguardarclick()" />Guardar</button>
-          </div>
-        </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-      
-      
- 
-          
-          
-
         
   <!-- Footer -->
   <footer class="bg-light py-5">
@@ -207,7 +186,53 @@
   <script src="js/creative.min.js"></script>
 
     <!--Funciones para mostrar prendas agregadas-->
-  <script src="underwear.js"></script>
+  <!--<script src="js/prendas.js"></script>-->
+
+  <script src="js/administrador.js"></script>
+  <script  src="js/select.js"></script>
+
+  <script type="text/javascript">
+    function agregaadm(){
+    let admactual =  new _adm('0',
+        document.getElementById("nombre").value,
+              document.getElementById("clave").value,
+              document.getElementById("email").value,
+              imagenenbase64,
+              document.getElementById("estado").value,
+              
+        );
+        admactual.Guardar(admactual).then(function(response) {
+  console.log("Success!", response);
+            alert("Guardado con exito");
+}, function(error) {
+  console.error("Failed!", error); 
+             alert("Error " + error);
+});
+      }
+
+      let imagenenbase64 = "";
+            $("#imgadmin").change(function(){
+             readURL(this);
+       });
+          
+              function readURL(input) {
+
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+
+                            imagenenbase64=e.target.result;
+
+                        
+                          
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            
+  </script>
 
 
 </body>

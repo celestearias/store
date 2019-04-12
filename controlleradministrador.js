@@ -8,9 +8,6 @@ module.exports = class _Administrador {
 
    }
     
-    
-    
-    
 Guardar(req,res) {
     var claveysaltlocal = administradorinstanciado.setPassword(req.body._CLAVE);
     console.log(claveysaltlocal[0]);
@@ -43,7 +40,7 @@ Guardar(req,res) {
 			}); 
 }
     
- /*Modificar(req,res) {
+ Modificar(req,res) {
 		Item.update( {_id : req.body.id},
 					{$set:
 			{
@@ -171,5 +168,5 @@ Seleccionartodos(req,res) {
 			);
     
     
-}*/
 }
+ }
